@@ -692,7 +692,7 @@ export default function App() {
               <div ref={chatEndRef}/>
             </div>
             <div style={{padding:"12px 20px",borderTop:`1px solid ${C.border}`,display:"flex",gap:8,flexShrink:0,background:"rgba(0,0,0,0.15)"}}>
-              <input value={chatInput} onChange={e=>setChatInput(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();sendChat();}}} placeholder={activeAgent.id==="prospector"?"Ask Prospecting Agent to find leads..."`Message ${activeAgent.full}...`}
+              <input value={chatInput} onChange={e=>setChatInput(e.target.value)} onKeyDown={e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();sendChat();}}} placeholder={activeAgent.id==="prospector"?"Ask Prospecting Agent to find leads...":`Message ${activeAgent.full}...`}
                 style={{flex:1,background:"rgba(255,255,255,0.04)",border:`1px solid ${C.border}`,borderRadius:12,padding:"11px 16px",fontSize:13,color:C.text,fontFamily:"inherit",outline:"none"}}
                 onFocus={e=>e.target.style.borderColor=activeAgent.color+"66"} onBlur={e=>e.target.style.borderColor=C.border}/>
               <button onClick={sendChat} disabled={chatLoading||!chatInput.trim()} style={{background:chatLoading||!chatInput.trim()?"rgba(255,255,255,0.04)":`linear-gradient(135deg,${activeAgent.color},${activeAgent.color}CC)`,border:"none",borderRadius:12,padding:"11px 22px",fontSize:12,fontWeight:700,color:chatLoading||!chatInput.trim()?"rgba(255,255,255,0.2)":"#fff",cursor:chatLoading||!chatInput.trim()?"not-allowed":"pointer",transition:"all 0.2s"}}>Send</button>
